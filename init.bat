@@ -1,0 +1,5 @@
+(clear)
+(load cocina2.clp)
+(watch rules)
+(watch instances)
+(reset)
