@@ -91,42 +91,52 @@
 ;;-----------------------------------------------------------------------------------------------
 ;;Reglas 
 (defrule get-ingredientes
+(declare (salience 100))
 					(object (is-a PETICION) 		(ingredientes $? ?i1 $?))
 ?ingrediente1 <-	(object (is-a INGREDIENTE) 	(id_ingrediente ?idi)(id_receta ?idr)(nombre ?i1))
 ?receta <-			(object (is-a RECETA) 			(id_receta ?idr))
 => 
 (make-instance of BUSQUEDAIN (id_receta ?idr)(id_ingrediente ?idi)(nombre ?i1))
+(printout t "procesado ingrediente: " ?i1 crlf)
 )
 
 (defrule get-estilo
+(declare (salience 100))
 			(object (is-a PETICION) 		(tipo_estilo ?estl))
 ?estilo <-	(object (is-a ESTILO) 			(id_receta ?idr)(tipo_estilo ?estl))
 ?receta <-	(object (is-a RECETA) 			(id_receta ?idr))
 => 
 (make-instance of BUSQUEDAES (id_receta ?idr)(tipo_estilo ?estl))
+(printout t "procesado estilo: " ?estl crlf)
 )
 
 (defrule crear-resultado
+(declare (salience 50))
 (object (is-a BUSQUEDA) 		(id_receta ?idr))
 (not (object (is-a RESULTADO) 		(id_receta ?idr)))
 => 
 (make-instance of RESULTADO (id_receta ?idr))
+(printout t "resultado creado con id-receta: " ?idr crlf)
 )
 
 (defrule resultado-ingrediente
+(declare (salience 25))
 ?b 	<-(object (is-a BUSQUEDAIN) 		(id_receta ?idr)(id_ingrediente ?idi)(nombre ?i1))
 ?r 	<-(object (is-a RESULTADO) 		(id_receta ?idr)(ingredientes $?ingr)(tipo_estilo ?estl))
 => 
 (unmake-instance ?b ?r)
 (make-instance of RESULTADO (id_receta ?idr)(ingredientes $?ingr ?i1)(tipo_estilo ?estl))
+(printout t "ingrediente " ?i1 " guardado en receta: " ?idr crlf)
 )
 
 (defrule resultado-estilo
+(declare (salience 25))
 ?b	<-(object (is-a BUSQUEDAES) 		(id_receta ?idr)(tipo_estilo ?estl))
 ?r	<-(object (is-a RESULTADO) 		(id_receta ?idr)(ingredientes $?ingr))
 => 
 (unmake-instance ?b ?r)
 (make-instance of RESULTADO (id_receta ?idr)(ingredientes $?ingr)(tipo_estilo ?estl))
+(printout t "estilo " ?estl " guardado en receta: " ?idr crlf)
 )
 
 
@@ -144,7 +154,7 @@
 (definstances ingredientes
 (of INGREDIENTE (id_ingrediente 0)	(nombre arroz)		(id_receta 0)	(cantidad 1000)	(metrica_cantidad gr))
 (of INGREDIENTE (id_ingrediente 1)	(nombre bacalao)	(id_receta 1)	(cantidad 1000)	(metrica_cantidad gr))
-(of INGREDIENTE (id_ingrediente 2)	(nombre pan)			(id_receta 2)	(cantidad 500)	(metrica_cantidad gr))
+(of INGREDIENTE (id_ingrediente 2)	(nombre pan)		(id_receta 2)	(cantidad 500)	(metrica_cantidad gr))
 (of INGREDIENTE (id_ingrediente 3)	(nombre tomate)		(id_receta 0)	(cantidad 500)	(metrica_cantidad ml))
 (of INGREDIENTE (id_ingrediente 4)	(nombre jamon)		(id_receta 2)	(cantidad 250)	(metrica_cantidad gr))
 (of INGREDIENTE (id_ingrediente 5)	(nombre lechuga)	(id_receta 1)	(cantidad 300)	(metrica_cantidad gr))
