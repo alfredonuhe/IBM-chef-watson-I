@@ -1,4 +1,3 @@
-
 ;;-----------------------------------------------------------------------------------------------
 ;;Clases
 (defclass PETICION (is-a INITIAL-OBJECT)
@@ -8,10 +7,12 @@
 (type SYMBOL)
 (default null))
 )
+
 (defclass BUSQUEDA (is-a INITIAL-OBJECT)
 (slot id_receta
 (type INTEGER))
 )
+
 (defclass RESULTADO (is-a INITIAL-OBJECT)
 (slot id_receta
 (type INTEGER))
@@ -20,7 +21,14 @@
 (slot tipo_estilo
 (type SYMBOL)
 (default null))
+(slot impreso
+(type SYMBOL)
+(allowed-values si no)
+(default no))
+(slot imprimir_paso
+(type INTEGER))
 )
+
 (defclass RECETA (is-a INITIAL-OBJECT)
 (slot id_receta
 (type INTEGER))
@@ -47,12 +55,14 @@
 (type SYMBOL)
 (allowed-values gr ml))
 )
+
 (defclass ESTILO (is-a INITIAL-OBJECT)
 (slot id_receta
 (type INTEGER))
 (slot tipo_estilo
 (type SYMBOL))
 )
+
 (defclass PASO (is-a INITIAL-OBJECT)
 (slot id_receta
 (type INTEGER))
@@ -73,7 +83,8 @@
 (default 0))
 (slot orden
 (type INTEGER)
-(default 0)))
+(default 0))
+)
 
 (defclass BUSQUEDAIN (is-a BUSQUEDA)
 (slot id_ingrediente
@@ -81,6 +92,7 @@
 (slot nombre
 (type SYMBOL))
 )
+
 (defclass BUSQUEDAES (is-a BUSQUEDA)
 (slot tipo_estilo
 (type SYMBOL))
@@ -151,6 +163,7 @@
 (make-instance of RESULTADO (id_receta ?idr)(ingredientes $?ingr ?i1)(tipo_estilo ?estl))
 (printout t "ingrediente " ?i1 " guardado en receta: " ?idr crlf)
 )
+
 (defrule resultado-estilo
 (declare (salience 25))
 ?b	<-(object (is-a BUSQUEDAES) (id_receta ?idr)(tipo_estilo ?estl))
@@ -162,9 +175,33 @@
 )
 
 ;;FASE NUMERO 3
-(defrule crear-resultado-inventado
-(declare (salience 20))
+;(defrule crear-resultado-inventado
+;(declare (salience 20))
 
+;;FASE NUMERO 4
+
+(defrule imprimir-resultado-pasos
+(declare (salience 11))
+?r	<-(object (is-a RESULTADO) (id_receta ?idr)(ingredientes $?ingr)(impreso si)(imprimir_paso ?orden))
+(object (is-a PASO) (id_receta ?idr)(orden ?orden)(descripcion ?descripcion)(nombre_ingrediente ?nombre_ingrediente))
+=>
+(modify-instance ?r (imprimir_paso (+ 1 ?orden)))
+(printout t "Paso " ?orden " : " ?descripcion " " ?nombre_ingrediente "." crlf)
+)
+
+(defrule imprimir-resultado
+(declare (salience 10))
+?r	<-(object (is-a RESULTADO) (id_receta ?idr)(ingredientes $?ingr)(impreso no))
+(object (is-a RECETA) (id_receta ?idr)(nombre ?nombre_receta))
+(object (is-a ESTILO) (id_receta ?idr)(tipo_estilo ?estl))
+=>
+(modify-instance ?r (impreso si))
+(printout t crlf)
+(printout t "Receta: " ?nombre_receta crlf)
+(printout t "Ingredientes: " $?ingr crlf)
+(printout t "Estilo: " ?estl crlf)
+(printout t "Pasos: " crlf)
+)
 
 ;;-----------------------------------------------------------------------------------------------
 ;;Instancias
@@ -218,4 +255,4 @@
 
 (definstances peticion
 (of PETICION (ingredientes aceituna bacalao huevo)(tipo_estilo cubano))
-)
+) 
