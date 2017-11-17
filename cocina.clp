@@ -224,7 +224,7 @@
 )
 
 ;;Fase 4
-(defrule imprimir-resultado-pasos
+(defrule imprimir-resultado-encontrado-pasos
 (declare (salience 11))
 ?r	<-(object (is-a RESULTADO-ENCONTRADO) (id_receta ?idr)(ingredientes $?ingr)(impreso si)(imprimir_paso ?orden))
 (object (is-a PASO) (id_receta ?idr)(orden ?orden)(descripcion ?descripcion)(nombre_ingrediente ?nombre_ingrediente))
@@ -233,7 +233,7 @@
 (printout t "Paso " ?orden " : " ?descripcion " " ?nombre_ingrediente "." crlf)
 )
 
-(defrule imprimir-resultado
+(defrule imprimir-resultado-encontrado
 (declare (salience 10))
 ?r	<-(object (is-a RESULTADO-ENCONTRADO) (id_receta ?idr)(ingredientes $?ingr)(impreso no))
 (object (is-a RECETA) (id_receta ?idr)(nombre ?nombre_receta))
@@ -248,7 +248,7 @@
 )
 
 ;;Fase 5
-(defrule imprimir-resultado-pasos
+(defrule imprimir-resultado-inventado-pasos
 (declare (salience 9))
 ?r	<-(object (is-a RESULTADO-INVENTADO) (id_receta ?idr)(ingredientes $?ingr)(impreso si)(imprimir_paso ?orden))
 (object (is-a PASO) (id_receta ?idr)(orden ?orden)(descripcion ?descripcion)(nombre_ingrediente ?nombre_ingrediente))
@@ -257,7 +257,7 @@
 (printout t "Paso " ?orden " : " ?descripcion " " ?nombre_ingrediente "." crlf)
 )
 
-(defrule imprimir-resultado
+(defrule imprimir-resultado-inventado
 (declare (salience 8))
 ?r	<-(object (is-a RESULTADO-INVENTADO) (id_receta ?idr)(ingredientes $?ingr)(impreso no))
 (object (is-a RECETA) (id_receta ?idr)(nombre ?nombre_receta))
