@@ -1,4 +1,4 @@
-;;-----------------------------------------------------------------------------------------------
+
 ;;Clases
 
 (defclass PETICION (is-a INITIAL-OBJECT)
@@ -132,69 +132,73 @@
 (modify-instance ?contador (total-ingredientes (+ ?tingr ?numINGRE)) (total-recetas (+ ?trec 1)))
 )
 
-(defrule get-ingredientes
+(defrule procesa-ingredientes-peticion
 (declare (salience 100))
 (object (is-a PETICION) (ingredientes $? ?i1 $?))
 ?ingrediente1 <-	(object (is-a INGREDIENTE) (id_ingrediente ?idi)(id_receta ?idr)(nombre ?i1))
 ?receta <-	(object (is-a RECETA) (id_receta ?idr))
+(not (object (is-a RECETA) (id_receta ?idr) (nombre "receta inventada")))
 =>
 (make-instance of BUSQUEDAIN (id_receta ?idr)(id_ingrediente ?idi)(nombre ?i1))
-(printout t "procesado ingrediente: " ?i1 crlf)
+(printout t "Ingrediente procesado: " ?i1 crlf)
 )
-(defrule get-estilo
+(defrule procesa-estilo-peticion
 (declare (salience 100))
 (object (is-a PETICION) (tipo_estilo ?estl))
 ?estilo <-	(object (is-a ESTILO) (id_receta ?idr)(tipo_estilo ?estl))
 ?receta <-	(object (is-a RECETA) (id_receta ?idr))
+(not (object (is-a RECETA) (id_receta ?idr) (nombre "receta inventada")))
 =>
 (make-instance of BUSQUEDAES (id_receta ?idr)(tipo_estilo ?estl))
-(printout t "procesado estilo: " ?estl crlf)
+(printout t "Estilo procesado: " ?estl crlf)
 )
 ;;FASE NUMERO 2
-(defrule crear-resultado
-(declare (salience 50))
+(defrule crear-resultado-encontrado
+(declare (salience 99))
 (object (is-a BUSQUEDA) (id_receta ?idr))
 (not (object (is-a RESULTADO-ENCONTRADO) (id_receta ?idr)))
+(not (object (is-a RECETA) (id_receta ?idr) (nombre "receta inventada")))
 =>
 (make-instance of RESULTADO-ENCONTRADO (id_receta ?idr))
-(printout t "resultado creado con id-receta: " ?idr crlf)
+(printout t "Resultado creado con id-receta: " ?idr crlf)
 )
 
-(defrule resultado-ingrediente
-(declare (salience 25))
+(defrule ingrediente-resultado-encontrado
+(declare (salience 99))
 ?b <-(object (is-a BUSQUEDAIN) (id_receta ?idr)(id_ingrediente ?idi)(nombre ?i1) (contado no))
 ?r <-(object (is-a RESULTADO-ENCONTRADO) (id_receta ?idr)(ingredientes $?ingr)(tipo_estilo ?estl))
 =>
 (unmake-instance  ?r)
 (make-instance of RESULTADO-ENCONTRADO (id_receta ?idr)(ingredientes $?ingr ?i1)(tipo_estilo ?estl))
 (modify-instance ?b (contado si))
-(printout t "ingrediente " ?i1 " guardado en receta: " ?idr crlf)
+(printout t "Ingrediente " ?i1 " guardado en resultado con id: " ?idr crlf)
 )
-(defrule resultado-estilo
-(declare (salience 25))
+(defrule estilo-resultado-encontrado
+(declare (salience 99))
 ?b	<-(object (is-a BUSQUEDAES) (id_receta ?idr)(tipo_estilo ?estl) (contado no))
 ?r	<-(object (is-a RESULTADO-ENCONTRADO) (id_receta ?idr)(ingredientes $?ingr))
 =>
 (unmake-instance  ?r)
 (make-instance of RESULTADO-ENCONTRADO (id_receta ?idr)(ingredientes $?ingr)(tipo_estilo ?estl))
 (modify-instance ?b (contado si))
-(printout t "estilo " ?estl " guardado en receta: " ?idr crlf)
+(printout t "Estilo " ?estl " guardado en resultado con id: " ?idr crlf)
 )
 ;;Fase 3
-(defrule crear-resultado-RecetaInventada
-(declare (salience 20))
+(defrule crear-resultado-inventado
+(declare (salience 98))
 (not (object (is-a RESULTADO-INVENTADO)))
 ?contador<-(object (is-a CONTADOR) (total-ingredientes ?tingr) (total-recetas ?trec))
 (not (object (is-a RESULTADO) (id_receta ?trec)))
 =>
 (make-instance of RESULTADO-INVENTADO (id_receta ?trec))
-(make-instance of RECETA (id_receta ?trec) (nombre "receta invetada"))
+(make-instance of RECETA (id_receta ?trec) (nombre "receta inventada"))
 (modify-instance ?contador (total-recetas (+ ?trec 1)))
-(printout t "Creación de una receta inventada con id-receta: " ?trec crlf)
+(printout t "Receta creada con id: " ?trec crlf)
+(printout t "Resultado inventado creado con id-receta: " ?trec crlf)
 )
 
-(defrule resultado-receta-ingredientes-pasos
-(declare (salience 15))
+(defrule ingrediente-paso-resultado-inventado
+(declare (salience 97))
 ?contador<-(object (is-a CONTADOR) (total-ingredientes ?tingr) (orden ?o))
 (object (is-a INGREDIENTE) (nombre ?i1) (id_receta ?idr) (cantidad ?cant) (metrica_cantidad ?mcant))
 (object (is-a PASO) (id_receta ?idr) (descripcion ?desc) (nombre_ingrediente ?i1))
@@ -208,24 +212,24 @@
 (make-instance of PASO (id_receta ?trec) (orden ?o) (descripcion ?desc) (nombre_ingrediente ?i1))
 (modify-instance ?contador (total-ingredientes (+ ?tingr 1)) (orden (+ ?o 1)))
 (modify-instance ?rt (num_ingr (+ ?ningr 1)))
-(printout t "ingrediente " ?i1 " guardado en receta: " ?trec crlf)
-(printout t "cuyo paso nº " ?o " se realiza la accion de: " ?desc " sobre el alimento" ?i1 " para la receta "?trec crlf)
+(printout t "Ingrediente " ?i1 " guardado en resultado inventado con id: " ?trec crlf)
+(printout t "Paso nº " ?o " con descripcion: " ?desc " guardado en resultado inventado con id: " ?trec  crlf)
 )
 
-(defrule resultado-receta-estilo
-(declare (salience 15))
+(defrule estilo-resultado-inventado
+(declare (salience 97))
 ?b <-(object (is-a BUSQUEDAES) (tipo_estilo ?estl))
 ?r <-(object (is-a RESULTADO-INVENTADO) (id_receta ?trec)(ingredientes $?ingr)(tipo_estilo ?estilo))
 (test (eq ?estilo null))
 =>
 (modify-instance ?r (tipo_estilo ?estl))
 (make-instance of ESTILO (id_receta ?trec) (tipo_estilo ?estl))
-(printout t "estilo " ?estl " guardado en receta: " ?trec crlf)
+(printout t "Estilo " ?estl " guardado en resultado inventado con id: " ?trec crlf)
 )
 
 ;;Fase 4
 (defrule imprimir-resultado-encontrado-pasos
-(declare (salience 11))
+(declare (salience 96))
 ?r	<-(object (is-a RESULTADO-ENCONTRADO) (id_receta ?idr)(ingredientes $?ingr)(impreso si)(imprimir_paso ?orden))
 (object (is-a PASO) (id_receta ?idr)(orden ?orden)(descripcion ?descripcion)(nombre_ingrediente ?nombre_ingrediente))
 =>
@@ -234,7 +238,7 @@
 )
 
 (defrule imprimir-resultado-encontrado
-(declare (salience 10))
+(declare (salience 95))
 ?r	<-(object (is-a RESULTADO-ENCONTRADO) (id_receta ?idr)(ingredientes $?ingr)(impreso no))
 (object (is-a RECETA) (id_receta ?idr)(nombre ?nombre_receta))
 (object (is-a ESTILO) (id_receta ?idr)(tipo_estilo ?estl))
@@ -249,7 +253,7 @@
 
 ;;Fase 5
 (defrule imprimir-resultado-inventado-pasos
-(declare (salience 9))
+(declare (salience 94))
 ?r	<-(object (is-a RESULTADO-INVENTADO) (id_receta ?idr)(ingredientes $?ingr)(impreso si)(imprimir_paso ?orden))
 (object (is-a PASO) (id_receta ?idr)(orden ?orden)(descripcion ?descripcion)(nombre_ingrediente ?nombre_ingrediente))
 =>
@@ -258,7 +262,7 @@
 )
 
 (defrule imprimir-resultado-inventado
-(declare (salience 8))
+(declare (salience 93))
 ?r	<-(object (is-a RESULTADO-INVENTADO) (id_receta ?idr)(ingredientes $?ingr)(impreso no))
 (object (is-a RECETA) (id_receta ?idr)(nombre ?nombre_receta))
 (object (is-a ESTILO) (id_receta ?idr)(tipo_estilo ?estl))
@@ -324,4 +328,3 @@
 (definstances peticion
 (of PETICION (ingredientes aceituna bacalao huevo lechuga)(tipo_estilo cubano))
 )
-
