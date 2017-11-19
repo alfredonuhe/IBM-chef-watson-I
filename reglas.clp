@@ -3,7 +3,7 @@
 (declare (salience 101))
 =>
 (set-strategy random)
-(dribble-on salida.txt)
+(dribble-on prueba-6.txt)
 )
 ;;FASE NUMERO 1
 (defrule cuenta-recetas-ingredientes
