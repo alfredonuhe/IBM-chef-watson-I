@@ -1,0 +1,34 @@
+Estilo procesado: espanol
+Estilo procesado: espanol
+Estilo procesado: espanol
+Resultado creado con id-receta: 13
+Resultado creado con id-receta: 3
+Resultado creado con id-receta: 2
+Estilo espanol guardado en resultado con id: 2
+Estilo espanol guardado en resultado con id: 3
+Estilo espanol guardado en resultado con id: 13
+Receta creada con id: 15
+Resultado inventado creado con id-receta: 15
+
+Receta: melon con jamon
+Ingredientes encontrados: ()
+Estilo: espanol
+Pasos: 
+Paso 0 : corta melon.
+Paso 1 : trocea jamon.
+Paso 2 : anyade jamon.
+
+Receta: bocata de jamon
+Ingredientes encontrados: ()
+Estilo: espanol
+Pasos: 
+Paso 0 : corta pan.
+Paso 1 : anyade jamon.
+
+Receta: langostinos con salsa rosa
+Ingredientes encontrados: ()
+Estilo: espanol
+Pasos: 
+Paso 0 : pela langostino.
+Paso 1 : anyade ketchup.
+Paso 2 : anyade mayonesa.

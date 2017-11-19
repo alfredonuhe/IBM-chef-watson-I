@@ -1,0 +1,151 @@
+Ingrediente procesado: pimienta-negra en la receta con id: 8
+Ingrediente procesado: cordero en la receta con id: 10
+Ingrediente procesado: arroz en la receta con id: 11
+Ingrediente procesado: seta en la receta con id: 6
+Ingrediente procesado: garbanzo en la receta con id: 14
+Ingrediente procesado: arroz en la receta con id: 0
+Estilo procesado: griego
+Ingrediente procesado: yogur en la receta con id: 7
+Ingrediente procesado: arroz en la receta con id: 8
+Ingrediente procesado: naranja en la receta con id: 8
+Ingrediente procesado: queso en la receta con id: 14
+Ingrediente procesado: manzana en la receta con id: 4
+Ingrediente procesado: fresa en la receta con id: 7
+Resultado creado con id-receta: 14
+Ingrediente garbanzo guardado en resultado con id: 14
+Ingrediente queso guardado en resultado con id: 14
+Resultado creado con id-receta: 4
+Resultado creado con id-receta: 7
+Resultado creado con id-receta: 10
+Ingrediente fresa guardado en resultado con id: 7
+Estilo griego guardado en resultado con id: 10
+Ingrediente cordero guardado en resultado con id: 10
+Resultado creado con id-receta: 6
+Resultado creado con id-receta: 8
+Resultado creado con id-receta: 11
+Ingrediente arroz guardado en resultado con id: 11
+Ingrediente pimienta-negra guardado en resultado con id: 8
+Ingrediente arroz guardado en resultado con id: 8
+Ingrediente naranja guardado en resultado con id: 8
+Ingrediente manzana guardado en resultado con id: 4
+Resultado creado con id-receta: 0
+Ingrediente arroz guardado en resultado con id: 0
+Ingrediente seta guardado en resultado con id: 6
+Ingrediente yogur guardado en resultado con id: 7
+Receta creada con id: 15
+Resultado inventado creado con id-receta: 15
+Ingrediente seta guardado en resultado inventado con id: 15
+Paso nº 0 con descripcion: anyade guardado en resultado inventado con id: 15
+Ingrediente pimienta-negra guardado en resultado inventado con id: 15
+Paso nº 1 con descripcion: anyade guardado en resultado inventado con id: 15
+Ingrediente arroz guardado en resultado inventado con id: 15
+Paso nº 2 con descripcion: cuece guardado en resultado inventado con id: 15
+Ingrediente cordero guardado en resultado inventado con id: 15
+Paso nº 3 con descripcion: hornea guardado en resultado inventado con id: 15
+Estilo griego guardado en resultado inventado con id: 15
+Ingrediente fresa guardado en resultado inventado con id: 15
+Paso nº 4 con descripcion: trocea guardado en resultado inventado con id: 15
+Ingrediente garbanzo guardado en resultado inventado con id: 15
+Paso nº 5 con descripcion: cuece guardado en resultado inventado con id: 15
+Ingrediente queso guardado en resultado inventado con id: 15
+Paso nº 6 con descripcion: trocea guardado en resultado inventado con id: 15
+Ingrediente yogur guardado en resultado inventado con id: 15
+Paso nº 7 con descripcion: bate guardado en resultado inventado con id: 15
+Ingrediente manzana guardado en resultado inventado con id: 15
+Paso nº 8 con descripcion: corta guardado en resultado inventado con id: 15
+
+Receta: Hummus con queso
+Ingredientes encontrados: (garbanzo queso)
+Estilo: turco
+Pasos: 
+Paso 0 : cuece garbanzo.
+Paso 1 : amasa garbanzo.
+Paso 2 : trocea queso.
+Paso 3 : anyade queso.
+
+Receta: arroz a la cubana
+Ingredientes encontrados: (arroz)
+Estilo: cubano
+Pasos: 
+Paso 0 : cuece arroz.
+Paso 1 : agrega tomate.
+Paso 2 : rehoga arroz.
+Paso 3 : frie huevo-gallina.
+Paso 4 : junta arroz.
+
+Receta: helados de yogur y fruta
+Ingredientes encontrados: (fresa yogur)
+Estilo: noruego
+Pasos: 
+Paso 0 : trocea fresa.
+Paso 1 : mezcla yogur.
+Paso 2 : anyade azucar-integral.
+Paso 3 : bate yogur.
+
+Receta: pollo con manzana
+Ingredientes encontrados: (manzana)
+Estilo: frances
+Pasos: 
+Paso 0 : sazona pollo.
+Paso 1 : trocea cebolla.
+Paso 2 : corta manzana.
+Paso 3 : junta pollo.
+
+Receta: chocolate de setas magicas
+Ingredientes encontrados: (seta)
+Estilo: neoyorquina
+Pasos: 
+Paso 0 : secar seta.
+Paso 1 : corta seta.
+Paso 2 : desmenuza tableta-chocolate.
+Paso 3 : derrite tableta-chocolate.
+Paso 4 : anyade seta.
+
+Receta: Dolmas
+Ingredientes encontrados: (pimienta-negra arroz naranja)
+Estilo: libanes
+Pasos: 
+Paso 0 : lava hoja-parra.
+Paso 1 : hierve hoja-parra.
+Paso 2 : vierte aceite-oliva-virgen.
+Paso 3 : anyade cebolla.
+Paso 4 : muele ternera.
+Paso 5 : anyade ternera.
+Paso 6 : anyade sal.
+Paso 7 : anyade pimienta-negra.
+Paso 8 : sofrie ternera.
+Paso 9 : incorpora arroz.
+Paso 10 : rellena hoja-parra.
+Paso 11 : envuelve hoja-parra.
+
+Receta: sushi de atún
+Ingredientes encontrados: (arroz)
+Estilo: japones
+Pasos: 
+Paso 0 : cuece arroz.
+Paso 1 : trocea atun.
+Paso 2 : anyade aguacate.
+
+Receta: kebab griego
+Ingredientes encontrados: (cordero)
+Estilo: griego
+Pasos: 
+Paso 0 : hornea cordero.
+Paso 1 : anyade lechuga.
+Paso 2 : tuesta pan.
+Paso 3 : trocea tomate.
+Paso 4 : anyade tomate.
+
+Receta: receta inventada
+Ingredientes: (seta pimienta-negra arroz cordero fresa garbanzo queso yogur manzana)
+Estilo: griego
+Pasos: 
+Paso 0 : anyade seta.
+Paso 1 : anyade pimienta-negra.
+Paso 2 : cuece arroz.
+Paso 3 : hornea cordero.
+Paso 4 : trocea fresa.
+Paso 5 : cuece garbanzo.
+Paso 6 : trocea queso.
+Paso 7 : bate yogur.
+Paso 8 : corta manzana.

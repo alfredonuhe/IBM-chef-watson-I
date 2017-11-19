@@ -1,0 +1,117 @@
+Ingrediente procesado: lechuga en la receta con id: 10
+Estilo procesado: espanol
+Estilo procesado: espanol
+Ingrediente procesado: huevo-gallina en la receta con id: 5
+Ingrediente procesado: jamon en la receta con id: 3
+Ingrediente procesado: aceituna en la receta con id: 1
+Ingrediente procesado: huevo-gallina en la receta con id: 0
+Estilo procesado: espanol
+Ingrediente procesado: lechuga en la receta con id: 1
+Ingrediente procesado: jamon en la receta con id: 2
+Ingrediente procesado: bacalao en la receta con id: 1
+Resultado creado con id-receta: 1
+Ingrediente bacalao guardado en resultado con id: 1
+Ingrediente aceituna guardado en resultado con id: 1
+Ingrediente lechuga guardado en resultado con id: 1
+Resultado creado con id-receta: 0
+Resultado creado con id-receta: 5
+Resultado creado con id-receta: 10
+Ingrediente lechuga guardado en resultado con id: 10
+Ingrediente huevo-gallina guardado en resultado con id: 5
+Resultado creado con id-receta: 3
+Ingrediente huevo-gallina guardado en resultado con id: 0
+Resultado creado con id-receta: 2
+Estilo espanol guardado en resultado con id: 3
+Resultado creado con id-receta: 13
+Estilo espanol guardado en resultado con id: 13
+Ingrediente jamon guardado en resultado con id: 3
+Estilo espanol guardado en resultado con id: 2
+Ingrediente jamon guardado en resultado con id: 2
+Receta creada con id: 15
+Resultado inventado creado con id-receta: 15
+Estilo espanol guardado en resultado inventado con id: 15
+Ingrediente bacalao guardado en resultado inventado con id: 15
+Paso nº 0 con descripcion: frie guardado en resultado inventado con id: 15
+Ingrediente huevo-gallina guardado en resultado inventado con id: 15
+Paso nº 1 con descripcion: frie guardado en resultado inventado con id: 15
+Ingrediente jamon guardado en resultado inventado con id: 15
+Paso nº 2 con descripcion: anyade guardado en resultado inventado con id: 15
+Ingrediente aceituna guardado en resultado inventado con id: 15
+Paso nº 3 con descripcion: anyade guardado en resultado inventado con id: 15
+Ingrediente lechuga guardado en resultado inventado con id: 15
+Paso nº 4 con descripcion: anyade guardado en resultado inventado con id: 15
+
+Receta: melon con jamon
+Ingredientes encontrados: (jamon)
+Estilo: espanol
+Pasos: 
+Paso 0 : corta melon.
+Paso 1 : trocea jamon.
+Paso 2 : anyade jamon.
+
+Receta: bocata de jamon
+Ingredientes encontrados: (jamon)
+Estilo: espanol
+Pasos: 
+Paso 0 : corta pan.
+Paso 1 : anyade jamon.
+
+Receta: bacalao abra
+Ingredientes encontrados: (bacalao aceituna lechuga)
+Estilo: portugues
+Pasos: 
+Paso 0 : frie bacalao.
+Paso 1 : anyade lechuga.
+Paso 2 : corta aceituna.
+Paso 3 : anyade aceituna.
+Paso 4 : junta bacalao.
+Paso 5 : junta huevo-avestruz.
+
+Receta: kebab griego
+Ingredientes encontrados: (lechuga)
+Estilo: griego
+Pasos: 
+Paso 0 : hornear cordero.
+Paso 1 : anyade lechuga.
+Paso 2 : tuesta pan.
+Paso 3 : trocea tomate.
+Paso 4 : anyade tomate.
+
+Receta: huevos rellenos de salmon
+Ingredientes encontrados: (huevo-gallina)
+Estilo: australiana
+Pasos: 
+Paso 0 : cuece huevo-gallina.
+Paso 1 : mezcla salmon-ahumado.
+Paso 2 : mezcla mahonesa.
+Paso 3 : rellena huevo-gallina.
+Paso 4 : junta besamel.
+Paso 5 : anyade langostino.
+
+Receta: langostinos con salsa rosa
+Ingredientes encontrados: ()
+Estilo: espanol
+Pasos: 
+Paso 0 : pela langostino.
+Paso 1 : anyade ketchup.
+Paso 2 : anyade mayonesa.
+
+Receta: arroz a la cubana
+Ingredientes encontrados: (huevo-gallina)
+Estilo: cubano
+Pasos: 
+Paso 0 : cuece arroz.
+Paso 1 : agrega tomate.
+Paso 2 : rehoga arroz.
+Paso 3 : frie huevo-gallina.
+Paso 4 : junta arroz.
+
+Receta: receta inventada
+Ingredientes: (bacalao huevo-gallina jamon aceituna lechuga)
+Estilo: espanol
+Pasos: 
+Paso 0 : frie bacalao.
+Paso 1 : frie huevo-gallina.
+Paso 2 : anyade jamon.
+Paso 3 : anyade aceituna.
+Paso 4 : anyade lechuga.
